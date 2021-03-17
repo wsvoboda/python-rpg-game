@@ -3,6 +3,5 @@
 divvy tasks
 
 1. Patrick
-2. Jorge
-3. Taylor
-4. Whitney
+2. Taylor
+3. Whitney
