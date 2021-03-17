@@ -4,4 +4,5 @@ divvy tasks
 
 1. Patrick
 2. Taylor
-3. Whitney
+3. Jorge
+4. Whitney
