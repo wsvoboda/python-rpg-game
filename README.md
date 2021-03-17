@@ -5,8 +5,8 @@
 divvy tasks
 
 1. Patrick
-2. Jorge
-3. Taylor
+2. Taylor
+3. Jorge
 4. Whitney
 
 # testing creating branches from master (development)
