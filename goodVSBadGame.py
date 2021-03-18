@@ -1,14 +1,18 @@
-from random import randint
+from random import randint # to be able to generate a random numbe for the attack
 
-class Character:
-    def __init__(self, name, life):
+class Character: 
+    def __init__(self, name, defense, life):
         self.name = name
+        self.defense = defense
         self.life = life
     
     def takeDamage(self):
-        damageDone = randint(0,5)
-        self.life -= damageDone
-        print(f"The troll attacked! You lost {damageDone} health points.\n")
+        damageDone = randint(0,5) - (self.defense//10)
+        if damageDone <= 0:
+            print(f"The troll's attack missed! You didn't lose any health points.")
+        else:
+            self.life -= damageDone
+            print(f"The troll attacked! You lost {damageDone} health points.\n")
 
 class Troll(Character):
     def takeDamage(self):
@@ -52,12 +56,12 @@ def welcomeMessage():
             \\
     """)
     goodGuyName = input("What is your name, warrior? ")
-    goodGuy = Character(goodGuyName, 20)
+    goodGuy = Character(goodGuyName, 10, 20)
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
 
 goodGuy = welcomeMessage()
-troll = Troll("Troll", 20)
+troll = Troll("Troll", 0, 20)
 optionScreen()
 
 while goodGuy.life > 0 and troll.life > 0:
@@ -87,3 +91,21 @@ __   ___  ___| |_ ___  _ __ _   _
                             |___/ 
 
 You defeated the troll, {goodGuy.name}! Amazing!""")
+
+### testing things below here ###
+
+# ideas
+
+# include ascii images 
+
+# include a defense parameter
+    # defense of 10 = reduces attack by 1 unit (instead of attacking 5, will attack 4)
+    # defense of 20 = reduces attack by 2 units (instead of attacking 5, will attack 3)
+    # etc
+
+# provide option of 3 characters
+
+# have option of 3 enemies (chosen a random)
+
+
+
