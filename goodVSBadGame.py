@@ -1,5 +1,10 @@
 # message to users when opening game
 
+class Character:
+    def __init__(self, name, life):
+        self.name = name
+        self.life = life
+
 def openingMessage():
     print("Welcome to the dungeon! Prepare yourself to battle the troll!")
     goodGuyName = input("What is your name, warrior? ")
