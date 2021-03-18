@@ -10,7 +10,6 @@ class Character:
         self.life -= damageDone
         print(f"The troll attacked! You lost {damageDone} health points.\n")
 
-
 class Troll(Character):
     def takeDamage(self):
         damageDone = randint(1,7)
@@ -18,7 +17,10 @@ class Troll(Character):
         print(f"\nYou damaged the troll! It lost {damageDone} health points.")
 
 def optionScreen():
-    print(f"You have {goodGuy.life} health points. The troll has {troll.life} health points.")
+    print(f"""
+    {goodGuy.name}: {goodGuy.life} health points
+    Troll: {troll.life} health points
+    """)
     choice = input("""
     Choose from the following options:
     1. Fight the troll
@@ -52,6 +54,6 @@ while goodGuy.life > 0 and troll.life > 0:
     optionScreen()
 
 if goodGuy.life <= 0:
-    print("You died. RIP")
+    print(f"You died, {goodGuy.name}. RIP")
 else:
-    print("You defeated the troll! Amazing!")
+    print(f"You defeated the troll, {goodGuy.name}! Amazing!")
