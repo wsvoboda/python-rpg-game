@@ -46,7 +46,7 @@ def welcomeMessage():
             \\
     
     Welcome to the dungeon! Prepare yourself to battle the troll!
-    
+
             /
     *//////{<>==================-
             \\
@@ -64,6 +64,26 @@ while goodGuy.life > 0 and troll.life > 0:
     optionScreen()
 
 if goodGuy.life <= 0:
-    print(f"You died, {goodGuy.name}. RIP")
+    print(f"""
+            -|-
+             |
+         .-'~~~`-.
+       .'         `.
+       |  R  I  P  |
+       |           |
+       |           |
+     \\\\|           |//
+  ^^^^^^^^^^^^^^^^^^^^^^^
+  You died, {goodGuy.name}.""")
 else:
-    print(f"You defeated the troll, {goodGuy.name}! Amazing!")
+    print(f"""
+       _      _                   
+      (_)    | |                  
+__   ___  ___| |_ ___  _ __ _   _ 
+\ \ / / |/ __| __/ _ \| '__| | | |
+ \ V /| | (__| || (_) | |  | |_| |
+  \_/ |_|\___|\__\___/|_|   \__, |
+                             __/ |
+                            |___/ 
+
+You defeated the troll, {goodGuy.name}! Amazing!""")
