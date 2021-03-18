@@ -23,6 +23,6 @@ options
 divvy tasks
 
 1. Patrick - make flow of game - while loops, QA
-2. Taylor - make classes - make 1 for good guys, make 1 for bad guys
+2. Taylor - make class - 1 class for characters
 3. Jorge - make methods of attacking
 4. Whitney - make messages (options list)
