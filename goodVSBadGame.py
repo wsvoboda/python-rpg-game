@@ -1,11 +1,12 @@
-from random import randint # to be able to generate a random numbe for the attack
+from random import randint # to be able to generate a random number for the attack
 
 class Character: 
-    def __init__(self, name, defense, life):
+    def __init__(self, name, defense, power, life):
         self.name = name
         self.defense = defense
+        self.power = power
         self.life = life
-    
+
     def takeDamage(self):
         damageDone = randint(0,5) - (self.defense//10)
         if damageDone <= 0:
@@ -16,7 +17,7 @@ class Character:
 
 class Troll(Character):
     def takeDamage(self):
-        damageDone = randint(1,7)
+        damageDone = randint(1,7) + ((goodGuy.power)//10)
         self.life -= damageDone
         print(f"\nYou damaged the troll! It lost {damageDone} health points.")
 
@@ -56,12 +57,12 @@ def welcomeMessage():
             \\
     """)
     goodGuyName = input("What is your name, warrior? ")
-    goodGuy = Character(goodGuyName, 10, 20)
+    goodGuy = Character(goodGuyName, 10, 10, 20)
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
 
 goodGuy = welcomeMessage()
-troll = Troll("Troll", 0, 20)
+troll = Troll("Troll", 0, 0, 20)
 optionScreen()
 
 while goodGuy.life > 0 and troll.life > 0:
@@ -103,7 +104,18 @@ You defeated the troll, {goodGuy.name}! Amazing!""")
     # defense of 20 = reduces attack by 2 units (instead of attacking 5, will attack 3)
     # etc
 
+# include a power parameter
+    # power of 10 = increases attack by 1 unit
+    # power of 20 = increases attack by 2 units
+    # etc
+
 # provide option of 3 characters
+
+# cherry = Character("Cherry", 30, 30, 20)
+# mango = Character("Mango", 20, 50, 20)
+# peach = Character("Peach", 50, 20, 20)
+
+# print(cherry, mango, peach)
 
 # have option of 3 enemies (chosen a random)
 
