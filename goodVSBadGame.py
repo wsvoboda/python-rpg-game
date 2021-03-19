@@ -38,7 +38,21 @@ def optionScreen():
         return optionScreen()
     
 def welcomeMessage():
-    print("Welcome to the dungeon! Prepare yourself to battle the troll!")
+    print("""
+    .:\:\:/:/:.
+   :.:\:\:/:/:.:
+  :=.' -   - '.=:
+   '=(\ 9   9 /)='
+     (  (_)  )
+     /`-vvv-'|
+    /         |
+   / /|,,,,,|\ |
+  /_//  /^\  \\_|
+  WW(  (   )  )WW
+   __\,,\ /,,/__
+  (______Y______)
+        
+Welcome to the dungeon! Prepare yourself to battle the troll!""")
     goodGuyName = input("What is your name, warrior? ")
     goodGuy = Character(goodGuyName, 20)
     print(f"Good luck, {goodGuyName}.\n")
