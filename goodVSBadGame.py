@@ -1,24 +1,28 @@
 from random import randint
+from dice_roll import *
+
 
 class Character:
-    def __init__(self, name, life):
+    def __init__(self, name, life, weapon=None):
         self.name = name
         self.life = life
-    
+
     def takeDamage(self):
-        damageDone = randint(0,5)
+        damageDone = randint(0, 5)
         self.life -= damageDone
         print(f"The troll attacked! You lost {damageDone} health points.\n")
 
 
 class Troll(Character):
     def takeDamage(self):
-        damageDone = randint(1,7)
+        damageDone = randint(1, 7)
         self.life -= damageDone
         print(f"\nYou damaged the troll! It lost {damageDone} health points.")
 
+
 def optionScreen():
-    print(f"You have {goodGuy.life} health points. The troll has {troll.life} health points.")
+    print(
+        f"You have {goodGuy.life} health points. The troll has {troll.life} health points.")
     choice = input("""
     Choose from the following options:
     1. Fight the troll
@@ -30,19 +34,21 @@ def optionScreen():
         goodGuy.takeDamage()
     elif choice == "2":
         goodGuy.takeDamage()
-    elif choice == "3": 
-        print("COWARD! Better luck next time...") 
+    elif choice == "3":
+        print("COWARD! Better luck next time...")
         exit(0)
     else:
         print("\nPlease enter a valid choice.")
         return optionScreen()
-    
+
+
 def welcomeMessage():
     print("Welcome to the dungeon! Prepare yourself to battle the troll!")
     goodGuyName = input("What is your name, warrior? ")
-    goodGuy = Character(goodGuyName, 20)
+    goodGuy = Character(goodGuyName, dice_roll())
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
+
 
 goodGuy = welcomeMessage()
 troll = Troll("Troll", 20)
