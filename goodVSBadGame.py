@@ -36,12 +36,12 @@ trollPicture = """
     .:\:\:/:/:.
    :.:\:\:/:/:.:
   :=.' -   - '.=:
-   '=(\ 9   9 /)='
+  '=(\ 9   9 /)='
      (  (_)  )
      /`-vvv-'|
     /         |
    / /|,,,,,|\ |
-  /_//  /^\  \\_|
+  /_//  /^\  \\\_|
   WW(  (   )  )WW
    __\,,\ /,,/__
   (______Y______)
@@ -55,7 +55,7 @@ def battleOptionScreen():
 
     choice = input("""
     Choose from the following options:
-    1. Fight the {badGuyName}
+    1. Fight the troll
     2. Do nothing
     3. Run away\n
     """)
