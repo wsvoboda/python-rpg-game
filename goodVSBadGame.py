@@ -1,18 +1,18 @@
 from random import randint # to be able to generate a random number for the attack
 
 class Character: 
-    def __init__(self, name, defense, power, life):
+    def __init__(self, name, defense, power, lifePoints):
         self.name = name
         self.defense = defense
         self.power = power
-        self.life = life
+        self.lifePoints = lifePoints
 
     def takeDamage(self):
         damageDone = randint(0,5) - (self.defense//10)
         if damageDone <= 0:
-            print(f"The troll's attack missed! You didn't lose any health points.")
+            print(f"The troll attacked but missed! You didn't lose any health points.")
         else:
-            self.life -= damageDone
+            self.lifePoints -= damageDone
             print(f"The troll attacked! You lost {damageDone} health points.\n")
 
 class Troll(Character):
@@ -21,13 +21,13 @@ class Troll(Character):
         if damageDone <= 0:
             print(f"Your attacked missed! The troll didn't lost any health points.")
         else:
-            self.life -= damageDone
+            self.lifePoints -= damageDone
             print(f"\nYou attacked the troll! It lost {damageDone} health points.")
 
-def optionScreen():
+def battleOptionScreen():
     print(f"""
-    {goodGuy.name}: {goodGuy.life} health points
-    Troll: {troll.life} health points
+    {goodGuy.name}: {goodGuy.lifePoints} health points
+    Troll: {troll.lifePoints} health points
     """)
     choice = input("""
     Choose from the following options:
@@ -39,6 +39,7 @@ def optionScreen():
         troll.takeDamage()
         goodGuy.takeDamage()
     elif choice == "2":
+        print("You stood around and did nothing.. Try harder next time! The troll takes no breaks!")
         goodGuy.takeDamage()
     elif choice == "3": 
         print("COWARD! Better luck next time...") 
@@ -60,18 +61,18 @@ def welcomeMessage():
             \\
     """)
     goodGuyName = input("What is your name, warrior? ")
-    goodGuy = Character(goodGuyName, 0, 0, 20)
+    goodGuy = Character(goodGuyName, 10, 10, 20)
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
 
 goodGuy = welcomeMessage()
-troll = Troll("Troll", 0, 0, 20)
-optionScreen()
+troll = Troll("Troll", 20, 20, 20)
+battleOptionScreen()
 
-while goodGuy.life > 0 and troll.life > 0:
-    optionScreen()
+while goodGuy.lifePoints > 0 and troll.lifePoints > 0:
+    battleOptionScreen()
 
-if goodGuy.life <= 0:
+if goodGuy.lifePoints <= 0:
     print(f"""
             -|-
              |
