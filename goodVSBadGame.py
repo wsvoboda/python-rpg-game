@@ -17,9 +17,12 @@ class Character:
 
 class Troll(Character):
     def takeDamage(self):
-        damageDone = randint(1,7) + ((goodGuy.power)//10)
-        self.life -= damageDone
-        print(f"\nYou damaged the troll! It lost {damageDone} health points.")
+        damageDone = randint(0,7) + ((goodGuy.power)//10)
+        if damageDone <= 0:
+            print(f"Your attacked missed! The troll didn't lost any health points.")
+        else:
+            self.life -= damageDone
+            print(f"\nYou attacked the troll! It lost {damageDone} health points.")
 
 def optionScreen():
     print(f"""
@@ -57,7 +60,7 @@ def welcomeMessage():
             \\
     """)
     goodGuyName = input("What is your name, warrior? ")
-    goodGuy = Character(goodGuyName, 10, 10, 20)
+    goodGuy = Character(goodGuyName, 0, 0, 20)
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
 
@@ -116,6 +119,8 @@ You defeated the troll, {goodGuy.name}! Amazing!""")
 # peach = Character("Peach", 50, 20, 20)
 
 # print(cherry, mango, peach)
+
+# dice roll to determine stats
 
 # have option of 3 enemies (chosen a random)
 
