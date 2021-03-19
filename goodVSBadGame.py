@@ -1,23 +1,13 @@
 from dice_roll import *
 from random import randint
 
-# badGuyName = random(troll, goblin, bigFoot)
-# troll = EvilCharacter("Troll", 20)
-# goblin = EvilCharacter("Goblin", 20)
-# bigFoot = EvilCharacter("Big Foot", 30)
-
-# badGuyName = ("Troll", "Goblin", "Big Foot")
-# badGuy = EvilCharacter(badGuyName, 20)
-
 class Character: 
-    def __init__(self, name, defense, power, lifePoints):
+    def __init__(self, name, lifePoints):
         self.name = name
-        self.defense = defense
-        self.power = power
         self.lifePoints = lifePoints
 
     def takeDamage(self):
-        damageDone = randint(0,5) - (self.defense//10)
+        damageDone = randint(0,8)
         if damageDone <= 0:
             print(f"The troll attacked but missed! You didn't lose any health points.")
         else:
@@ -26,7 +16,7 @@ class Character:
 
 class EvilCharacter(Character):
     def takeDamage(self):
-        damageDone = randint(0,7) + ((goodGuy.power)//10)
+        damageDone = randint(0,10)
         if damageDone <= 0:
             print(f"Your attacked missed! The troll didn't lost any health points.")
         else:
@@ -50,8 +40,8 @@ trollPicture = """
 
 def battleOptionScreen():
     print(f"""{trollPicture}
-    {goodGuy.name}: {goodGuy.lifePoints} health points
-    Bad Guy: {troll.lifePoints} health points
+    {goodGuy.name}: {"*" * goodGuy.lifePoints} ({goodGuy.lifePoints}) health points
+    Troll: {"*" * troll.lifePoints} ({troll.lifePoints}) health points
     """)
     choice = input("""
     Choose from the following options:
@@ -86,14 +76,14 @@ def welcomeMessage():
     """)
 
     goodGuyName = input("What is your name, warrior? ")
-    goodGuy = Character(goodGuyName, 10, 10, dice_roll())
+    goodGuy = Character(goodGuyName, goodGuyRoll())
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
 
 
 goodGuy = welcomeMessage()
 
-troll = EvilCharacter("Troll", 20, 20, 20)
+troll = EvilCharacter("Troll", trollRoll())
 battleOptionScreen()
 
 while goodGuy.lifePoints > 0 and troll.lifePoints > 0:
