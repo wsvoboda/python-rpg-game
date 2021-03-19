@@ -1,53 +1,38 @@
-from random import randint
-
-class Character:
-    def __init__(self, name, lifePoints):
-        self.name = name
-        self.lifePoints = lifePoints
-    
-    def takeDamage(self):
-        damageDone = randint(0,5)
-        self.lifePoints -= damageDone
-        print(f"The {badGuyName} attacked! You lost {damageDone} health points.\n")
-
-class EvilCharacter(Character):
-    
-    def takeDamage(self):
-        damageDone = randint(1,7)
-        self.lifePoints -= damageDone
-        print(f"\nYou damaged the {badGuyName}! It lost {damageDone} health points.")
+from random import randint # to be able to generate a random number for the attack
 
 # badGuyName = random(troll, goblin, bigFoot)
-troll = EvilCharacter("Troll", 20)
-goblin = EvilCharacter("Goblin", 20)
-bigFoot = EvilCharacter("Big Foot", 30)
+# troll = EvilCharacter("Troll", 20)
+# goblin = EvilCharacter("Goblin", 20)
+# bigFoot = EvilCharacter("Big Foot", 30)
 
 # badGuyName = ("Troll", "Goblin", "Big Foot")
 # badGuy = EvilCharacter(badGuyName, 20)
 
+class Character: 
+    def __init__(self, name, defense, power, lifePoints):
+        self.name = name
+        self.defense = defense
+        self.power = power
+        self.lifePoints = lifePoints
 
-def optionScreen():
-    print(f"You have {goodGuy.lifePoints} health points. The {badGuyName} has {badGuy.lifePoints} health points.")
-    choice = input("""
-    Choose from the following options:
-    1. Fight the {badGuyName}
-    2. Do nothing
-    3. Run away\n
-    """)
-    if choice == "1":
-        troll.takeDamage()
-        goodGuy.takeDamage()
-    elif choice == "2":
-        goodGuy.takeDamage()
-    elif choice == "3": 
-        print("COWARD! Better luck next time...") 
-        exit(0)
-    else:
-        print("\nPlease enter a valid choice.")
-        return optionScreen()
-    
-def welcomeMessage():
-    print("""
+    def takeDamage(self):
+        damageDone = randint(0,5) - (self.defense//10)
+        if damageDone <= 0:
+            print(f"The troll attacked but missed! You didn't lose any health points.")
+        else:
+            self.lifePoints -= damageDone
+            print(f"The troll attacked! You lost {damageDone} health points.\n")
+
+class EvilCharacter(Character):
+    def takeDamage(self):
+        damageDone = randint(0,7) + ((goodGuy.power)//10)
+        if damageDone <= 0:
+            print(f"Your attacked missed! The troll didn't lost any health points.")
+        else:
+            self.lifePoints -= damageDone
+            print(f"\nYou attacked the troll! It lost {damageDone} health points.")
+            
+trollPicture = """
     .:\:\:/:/:.
    :.:\:\:/:/:.:
   :=.' -   - '.=:
@@ -60,20 +45,82 @@ def welcomeMessage():
   WW(  (   )  )WW
    __\,,\ /,,/__
   (______Y______)
-        
-Welcome to the dungeon! Prepare yourself to battle!""")
+  """
+
+def battleOptionScreen():
+    print(f"""{trollPicture}
+    {goodGuy.name}: {goodGuy.lifePoints} health points
+    Bad Guy: {troll.lifePoints} health points
+    """)
+
+    choice = input("""
+    Choose from the following options:
+    1. Fight the {badGuyName}
+    2. Do nothing
+    3. Run away\n
+    """)
+    if choice == "1":
+        troll.takeDamage()
+        goodGuy.takeDamage()
+    elif choice == "2":
+        print("You stood around and did nothing.. Try harder next time! The troll takes no breaks!")
+        goodGuy.takeDamage()
+    elif choice == "3": 
+        print("COWARD! Better luck next time...") 
+        exit(0)
+    else:
+        print("\nPlease enter a valid choice.")
+        return optionScreen()
+    
+
+    
+def welcomeMessage():
+    print("""
+            /
+    *//////{<>==================-
+            \\
+    
+    Welcome to the dungeon! Prepare yourself to battle the troll!
+
+            /
+    *//////{<>==================-
+            \\
+    """)
+
     goodGuyName = input("What is your name, warrior? ")
-    goodGuy = Character(goodGuyName, 20)
+    goodGuy = Character(goodGuyName, 10, 10, 20)
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
 
 goodGuy = welcomeMessage()
-optionScreen()
+
+troll = EvilCharacter("Troll", 20, 20, 20)
+battleOptionScreen()
 
 while goodGuy.lifePoints > 0 and troll.lifePoints > 0:
-    optionScreen()
+    battleOptionScreen()
 
 if goodGuy.lifePoints <= 0:
-    print("You died. RIP")
+    print(f"""
+            -|-
+             |
+         .-'~~~`-.
+       .'         `.
+       |  R  I  P  |
+       |           |
+       |           |
+     \\\\|           |//
+  ^^^^^^^^^^^^^^^^^^^^^^^
+  You died, {goodGuy.name}.""")
 else:
-    print("You defeated the {badGuyName}. Amazing!")
+    print(f"""
+       _      _                   
+      (_)    | |                  
+__   ___  ___| |_ ___  _ __ _   _ 
+\ \ / / |/ __| __/ _ \| '__| | | |
+ \ V /| | (__| || (_) | |  | |_| |
+  \_/ |_|\___|\__\___/|_|   \__, |
+                             __/ |
+                            |___/ 
+
+You defeated the troll, {goodGuy.name}! Amazing!""")
