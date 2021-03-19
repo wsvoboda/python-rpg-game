@@ -1,4 +1,5 @@
-from random import randint # to be able to generate a random number for the attack
+from dice_roll import *
+from random import randint
 
 # badGuyName = random(troll, goblin, bigFoot)
 # troll = EvilCharacter("Troll", 20)
@@ -52,7 +53,6 @@ def battleOptionScreen():
     {goodGuy.name}: {goodGuy.lifePoints} health points
     Bad Guy: {troll.lifePoints} health points
     """)
-
     choice = input("""
     Choose from the following options:
     1. Fight the troll
@@ -65,15 +65,13 @@ def battleOptionScreen():
     elif choice == "2":
         print("You stood around and did nothing.. Try harder next time! The troll takes no breaks!")
         goodGuy.takeDamage()
-    elif choice == "3": 
-        print("COWARD! Better luck next time...") 
+    elif choice == "3":
+        print("COWARD! Better luck next time...")
         exit(0)
     else:
         print("\nPlease enter a valid choice.")
         return optionScreen()
-    
 
-    
 def welcomeMessage():
     print("""
             /
@@ -88,9 +86,10 @@ def welcomeMessage():
     """)
 
     goodGuyName = input("What is your name, warrior? ")
-    goodGuy = Character(goodGuyName, 10, 10, 20)
+    goodGuy = Character(goodGuyName, 10, 10, dice_roll())
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
+
 
 goodGuy = welcomeMessage()
 
