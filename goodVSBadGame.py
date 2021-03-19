@@ -59,7 +59,6 @@ Welcome to the dungeon! Prepare yourself to battle the troll!""")
     return goodGuy
 
 goodGuy = welcomeMessage()
-troll = Troll("Troll", 20)
 optionScreen()
 
 while goodGuy.life > 0 and troll.life > 0:
