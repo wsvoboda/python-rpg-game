@@ -1,5 +1,13 @@
 from random import randint # to be able to generate a random number for the attack
 
+# badGuyName = random(troll, goblin, bigFoot)
+# troll = EvilCharacter("Troll", 20)
+# goblin = EvilCharacter("Goblin", 20)
+# bigFoot = EvilCharacter("Big Foot", 30)
+
+# badGuyName = ("Troll", "Goblin", "Big Foot")
+# badGuy = EvilCharacter(badGuyName, 20)
+
 class Character: 
     def __init__(self, name, defense, power, lifePoints):
         self.name = name
@@ -15,7 +23,7 @@ class Character:
             self.lifePoints -= damageDone
             print(f"The troll attacked! You lost {damageDone} health points.\n")
 
-class Troll(Character):
+class EvilCharacter(Character):
     def takeDamage(self):
         damageDone = randint(0,7) + ((goodGuy.power)//10)
         if damageDone <= 0:
@@ -23,15 +31,31 @@ class Troll(Character):
         else:
             self.lifePoints -= damageDone
             print(f"\nYou attacked the troll! It lost {damageDone} health points.")
+            
+trollPicture = """
+    .:\:\:/:/:.
+   :.:\:\:/:/:.:
+  :=.' -   - '.=:
+   '=(\ 9   9 /)='
+     (  (_)  )
+     /`-vvv-'|
+    /         |
+   / /|,,,,,|\ |
+  /_//  /^\  \\_|
+  WW(  (   )  )WW
+   __\,,\ /,,/__
+  (______Y______)
+  """
 
 def battleOptionScreen():
-    print(f"""
+    print(f"""{trollPicture}
     {goodGuy.name}: {goodGuy.lifePoints} health points
-    Troll: {troll.lifePoints} health points
+    Bad Guy: {troll.lifePoints} health points
     """)
+
     choice = input("""
     Choose from the following options:
-    1. Fight the troll
+    1. Fight the {badGuyName}
     2. Do nothing
     3. Run away\n
     """)
@@ -48,6 +72,8 @@ def battleOptionScreen():
         print("\nPlease enter a valid choice.")
         return optionScreen()
     
+
+    
 def welcomeMessage():
     print("""
             /
@@ -60,13 +86,15 @@ def welcomeMessage():
     *//////{<>==================-
             \\
     """)
+
     goodGuyName = input("What is your name, warrior? ")
     goodGuy = Character(goodGuyName, 10, 10, 20)
     print(f"Good luck, {goodGuyName}.\n")
     return goodGuy
 
 goodGuy = welcomeMessage()
-troll = Troll("Troll", 20, 20, 20)
+
+troll = EvilCharacter("Troll", 20, 20, 20)
 battleOptionScreen()
 
 while goodGuy.lifePoints > 0 and troll.lifePoints > 0:
@@ -96,34 +124,3 @@ __   ___  ___| |_ ___  _ __ _   _
                             |___/ 
 
 You defeated the troll, {goodGuy.name}! Amazing!""")
-
-### testing things below here ###
-
-# ideas
-
-# include ascii images 
-
-# include a defense parameter
-    # defense of 10 = reduces attack by 1 unit (instead of attacking 5, will attack 4)
-    # defense of 20 = reduces attack by 2 units (instead of attacking 5, will attack 3)
-    # etc
-
-# include a power parameter
-    # power of 10 = increases attack by 1 unit
-    # power of 20 = increases attack by 2 units
-    # etc
-
-# provide option of 3 characters
-
-# cherry = Character("Cherry", 30, 30, 20)
-# mango = Character("Mango", 20, 50, 20)
-# peach = Character("Peach", 50, 20, 20)
-
-# print(cherry, mango, peach)
-
-# dice roll to determine stats
-
-# have option of 3 enemies (chosen a random)
-
-
-
