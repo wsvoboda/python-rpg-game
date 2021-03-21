@@ -40,8 +40,8 @@ trollPicture = """
 
 def battleOptionScreen():
     print(f"""{trollPicture}
-    {goodGuy.name}: {"*" * goodGuy.lifePoints} ({goodGuy.lifePoints}) health points
-    Troll: {"*" * troll.lifePoints} ({troll.lifePoints}) health points
+    {goodGuy.name}: \t{"*" * goodGuy.lifePoints} ({goodGuy.lifePoints}) health points
+    Troll: \t{"*" * troll.lifePoints} ({troll.lifePoints}) health points
     """)
     choice = input("""
     Choose from the following options:
@@ -60,7 +60,7 @@ def battleOptionScreen():
         exit(0)
     else:
         print("\nPlease enter a valid choice.")
-        return optionScreen()
+        return battleOptionScreen()
 
 def welcomeMessage():
     print("""
