@@ -1,16 +1,15 @@
-We are team Coffee Cup!
+## We are team Coffee Cup!
 
 Team members:
 
-Whitney Svoboda (PM)
-
-Taylor Lightbourne
-
-Patrick Groves
-
-Jorge Gonzalez
+- Whitney Svoboda (PM)
+- Taylor Lightbourne
+- Patrick Groves
+- Jorge Gonzalez
 
 We created a personalized game that has the user battling a troll in a dungeon!
+
+[WelcomeScreen]
 
 The game starts by asking the user's name. The game assigns this name to the warrior.
 
