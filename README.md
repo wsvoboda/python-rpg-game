@@ -1,4 +1,4 @@
-We are team Coffee Cup!
+<!-- We are team Coffee Cup!
 
 Team members:
 Whitney Svoboda (PM)
@@ -16,4 +16,4 @@ The strength of the attack is also determined by the randint function. The warri
 
 The user decides if they want to fight, do nothing, or run away. If the user decides to fight, the user inflicts an amount of damage and the troll also inflicts an amount of damage. It is also possible one or both of the attacks misses. A life status bar is shown after every turn.
 
-The game continues until either the user or the troll dies. There is a victory screen and a death screen. If the user ever chooses to run away, the game ends.
+The game continues until either the user or the troll dies. There is a victory screen and a death screen. If the user ever chooses to run away, the game ends. -->
