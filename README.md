@@ -1,28 +1,19 @@
-# python-rpg-game
+We are team Coffee Cup!
 
-start screen - welcome message - you are a good guy with x, y z stats, you will battle bad guy with x, y, z stats. option list
+Team members:
+Whitney Svoboda (PM)
+Taylor Lightbourne
+Patrick Groves
+Jorge Gonzalez
 
-options
+We created a personalized game that has the user battling a troll in a dungeon!
 
-1. fight
-2. do nothing
-3. run away
+The game starts by asking the user's name. The game assigns this name to the warrior.
 
-4. when fighting
-   a. hero to do some damage
-   b. bad guy to do some damage (randomize damage done)
-   c. loop back to options again
+The game then has the user roll a magic dice! The magic dice uses the randint function to produce a number from 1 to 6. The result of the dice roll is multiplied by 10 and is assigned to the user as health points. The troll also rolls and gets a number of health points using the same method.
 
-5. when do nothing
-   a. enemy attacks
-   b. loops back to options again
+The strength of the attack is also determined by the randint function. The warrior can inflict a possible range of 0 to 10 points. The troll can inflict a possible range of 0 to 8 points.
 
-6. run away
-   a. quits game
+The user decides if they want to fight, do nothing, or run away. If the user decides to fight, the user inflicts an amount of damage and the troll also inflicts an amount of damage. It is also possible one or both of the attacks misses. A life status bar is shown after every turn.
 
-divvy tasks
-
-1. Patrick - make flow of game - while loops, QA
-2. Taylor - make class - 1 class for characters
-3. Jorge - make methods of attacking
-4. Whitney - make messages (options list)
+The game continues until either the user or the troll dies. There is a victory screen and a death screen. If the user ever chooses to run away, the game ends.
