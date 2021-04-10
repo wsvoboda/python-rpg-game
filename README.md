@@ -21,11 +21,11 @@ The user decides if they want to fight, do nothing, or run away.
 
 If the user decides to fight, the user inflicts an amount of damage and the troll also inflicts an amount of damage. The strength of the attack is also determined by the randint function. The warrior can inflict a possible range of 0 to 10 points. The troll can inflict a possible range of 0 to 8 points.
 
-![fight](https://user-images.githubusercontent.com/78281930/112056127-a7c9c080-8b25-11eb-9245-0223fd151b1d.PNG)
+![attack](https://user-images.githubusercontent.com/78281930/114287031-5bd5b180-9a29-11eb-9689-f927b97dd957.png)
 
 It is also possible one or both of the attacks misses. A life status bar is shown after every turn.
 
-![doNothing](https://user-images.githubusercontent.com/78281930/112056169-b617dc80-8b25-11eb-80d6-2aa09da2f83b.PNG)
+![donothing](https://user-images.githubusercontent.com/78281930/114287052-8b84b980-9a29-11eb-9b1f-299348aacd66.png)
 
 The game continues until either the user or the troll dies. There is a victory screen and a death screen. If the user ever chooses to run away, the game ends.
 
