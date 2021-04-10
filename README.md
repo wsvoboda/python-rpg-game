@@ -25,7 +25,7 @@ If the user decides to fight, the user inflicts an amount of damage and the trol
 
 It is also possible one or both of the attacks misses. A life status bar is shown after every turn.
 
-![donothing](https://user-images.githubusercontent.com/78281930/114287093-d1da1880-9a29-11eb-937b-93b4a50267b9.png)
+![donothing](https://user-images.githubusercontent.com/78281930/114287107-e7e7d900-9a29-11eb-97e6-eefad63feca3.png)
 
 The game continues until either the user or the troll dies. There is a victory screen and a death screen. If the user ever chooses to run away, the game ends.
 
